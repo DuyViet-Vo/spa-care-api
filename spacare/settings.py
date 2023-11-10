@@ -82,7 +82,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "spacare_1",
         "USER": "postgres",
-        "PASSWORD": "vdv18102001@",
+        "PASSWORD": "vdv1810",
         "HOST": "localhost",
         "PORT": "5432",
     }
