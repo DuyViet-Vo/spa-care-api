@@ -19,8 +19,10 @@ from django.urls import path, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework_simplejwt import views as jwt_views
 
-from spacare.users.views import UserCreateAPIView
+from spacare.quyen.views import LisCreateQuyenView
+from spacare.users.views import UserRegisterView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -42,5 +44,9 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("admin/", admin.site.urls),
-    path("api/register/", UserCreateAPIView.as_view(), name="register"),
+    # User
+    path("api/register", UserRegisterView.as_view(), name="register"),
+    path("api/login", jwt_views.TokenObtainPairView.as_view(), name="login"),
+    # Quyen
+    path("api/quyen", LisCreateQuyenView.as_view()),
 ]
